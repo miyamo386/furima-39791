@@ -1,24 +1,64 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
 
-Things you may want to cover:
+| Column             | Type   | Options                   |
+| ------------------ | ------ | -----------               |
+| nickname           | string | null: false               |
+| email              | string | null: false, unique: true |
+| encrypted_password | string | null: false               |
+| last_name          | string | null: false               |
+| first_name         | string | null: false               |
+| last_name_kana     | string | null: false               |
+| first_name_kana    | string | null: false               |
+| birthday           | string | null: false               |
 
-* Ruby version
+### Association
 
-* System dependencies
+- has_many :items
+- has_many :orders
 
-* Configuration
+## items テーブル
 
-* Database creation
+| Column             | Type      | Options     |
+| ------------------ | --------- | ----------- |
+| item_name          | string    | null: false |
+| item_description   | text      | null: false |
+| price              | integer   | null: false |
+| exhibitor          | string    | null: false |
+| category           | string    | null: false |
+| item_condition     | string    | null: false |
+| delivery_price     | integer   | null: false |
+| ships_from         | string    | null: false |
+| delivery_criterion | string    | null: false |
 
-* Database initialization
+### Association
 
-* How to run the test suite
+- belongs_to :users
+- has_one    :orders
 
-* Services (job queues, cache servers, search engines, etc.)
+## orders テーブル
 
-* Deployment instructions
+| Column         | Type       | Options                        |
+| -------------- | ---------- | ------------------------------ |
+| item_user_id   | references | null: false, foreign_key: true |
+| item_name_id   | references | null: false, foreign_key: true |
 
-* ...
+### Association
+
+- belongs_to :users
+- has_one    :address
+
+## address テーブル
+
+| Column        | Type       | Options                        |
+| ------------- | ---------- | ------------------------------ |
+| postcode      | integer    | null: false                    |
+| prefecture_id | string     | null: false                    |
+| city          | string     | null: false                    |
+| block         | integer    | null: false                    |
+| building      | string     |                                |
+
+### Association
+
+- belongs_to :orders
