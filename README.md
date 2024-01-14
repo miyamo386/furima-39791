@@ -12,8 +12,6 @@
 | last_name_kana     | string | null: false               |
 | first_name_kana    | string | null: false               |
 | birthday           | date   | null: false               |
-|            | date   | null: false               |
-
 
 ### Association
 
@@ -22,17 +20,17 @@
 
 ## items テーブル
 
-| Column                | Type       | Options     |
-| --------------------- | ---------- | ----------- |
-| item_name             | string     | null: false |
-| item_description      | text       | null: false |
-| price                 | integer    | null: false |
-| user                  | references | null: false |
-| category_id           | integer    | null: false |
-| item_status_id        | integer    | null: false |
-| delivery_price_id     | integer    | null: false |
-| prefecture_id         | integer    | null: false |
-| delivery_criterion_id | integer    | null: false |
+| Column                | Type       | Options                        |
+| --------------------- | ---------- | ------------------------------ |
+| item_name             | string     | null: false                    |
+| item_description      | text       | null: false                    |
+| price                 | integer    | null: false                    |
+| user                  | references | null: false, foreign_key: true |
+| category_id           | integer    | null: false                    |
+| item_status_id        | integer    | null: false                    |
+| delivery_price_id     | integer    | null: false                    |
+| prefecture_id         | integer    | null: false                    |
+| delivery_criterion_id | integer    | null: false                    |
 
 ### Association
 
@@ -56,11 +54,11 @@
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
 | postcode      | string     | null: false                    |
-| prefecture_id | string     | null: false                    |
+| prefecture_id | integer    | null: false                    |
 | city          | string     | null: false                    |
 | block         | string     | null: false                    |
 | building      | string     |                                |
-| phone_number  | integer    | null: false                    |
+| phone_number  | string     | null: false                    |
 | order         | references | null: false, foreign_key: true |
 
 ### Association
