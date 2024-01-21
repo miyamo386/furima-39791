@@ -8,10 +8,10 @@ FactoryBot.define do
     item_name { '三色ボールペン' }
     item_description { '赤・青・黒インクの発色が良く書き味がサラサラして書きやすいです' }
     price { '500' }
-    category { Category.all.sample }
-    item_status { ItemStatus.all.sample }
-    delivery_price { DeliveryPrice.all.sample }
-    prefecture { Prefecture.all.sample }
-    delivery_criterion { DeliveryCriterion.all.sample }
+    category_id { 2 }
+    item_status_id { 2 }
+    delivery_price_id { 2 }
+    prefecture_id { 2 }
+    delivery_criterion_id { 2 }
   end
 end
