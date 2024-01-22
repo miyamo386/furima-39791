@@ -5,8 +5,6 @@ window.addEventListener('turbo:load', () => {
     const handlingCharge = document.getElementById("add-tax-price");
     handlingCharge.innerHTML = Math.floor(inputValue * 0.1)
     const benefit = document.getElementById("profit");
-    console.log(benefit);
     benefit.innerHTML = Math.floor(inputValue - handlingCharge.innerHTML)
-    
   })
 });
