@@ -13,10 +13,10 @@ class Item < ApplicationRecord
     validates :item_name
     validates :item_description
     validates :image
-    validates :price, numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999 }
+    validates :price, numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
   end
 
-  with_options presence: true, numericality: { other_than: 1 , message: "can't be blank"} do
+  with_options presence: true, numericality: { other_than: 1, message: "can't be blank" } do
     validates :category_id
     validates :item_status_id
     validates :delivery_price_id
