@@ -49,9 +49,7 @@ class ItemsController < ApplicationController
     if user_signed_in? && @item.user
       redirect_to action: :index
     else
-      if user_signed_in?
-        redirect_to action: :index
-      end
+      redirect_to action: :index
     end
   end
 end
