@@ -22,10 +22,10 @@ class ItemsController < ApplicationController
 
   def show
   end
-  
+
   def edit
   end
-  
+
   def update
     if @item.update(item_params)
       redirect_to item_path(@item.id)
@@ -46,8 +46,8 @@ class ItemsController < ApplicationController
   end
 
   def move_to_index
-    if user_signed_in?
-      redirect_to action: :index
-    end
+    return unless user_signed_in?
+
+    redirect_to action: :index
   end
 end
