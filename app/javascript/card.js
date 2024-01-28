@@ -1,5 +1,5 @@
 const pay = () => {
-
+  
   const elements = payjp.elements();
   const numberElement = elements.create('cardNumber');
   const expiryElement = elements.create('cardExpiry');
@@ -10,7 +10,12 @@ const pay = () => {
 
   const form = document.getElementById('charge-form')
   form.addEventListener("submit", (e) => {
-    console.log("フォーム送信時にイベント発火")
+    payjp.createToken(numberElement).then(function (response) {
+      if (response.error) {
+      } else {
+        const token = response.id;
+      }
+    });
     e.preventDefault();
   });
 };
