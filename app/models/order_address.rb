@@ -8,6 +8,7 @@ class OrderAddress
     validates :city
     validates :block
     validates :phone_number, numericality: { only_integer: true }, length: { in: 10..11, message: "Enter between 10 and 11 digits"}
+    validates :token
   end
 
   def save
